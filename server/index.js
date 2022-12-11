@@ -11,7 +11,9 @@ import managementRoutes from './routes/managementRoutes.js';
 import salesRoutes from './routes/salesRoutes.js';
 import User from './models/userModel.js';
 
-import { dataUser } from './data/index.js';
+import { dataUser, dataProduct, dataProductStat } from './data/index.js';
+import ProductStat from './models/productStatModel.js';
+import Product from './models/productModel.js';
 
 /* CONFIGRATION */
 dotenv.config();
@@ -37,5 +39,7 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`));
     // User.insertMany(dataUser);
+    // ProductStat.insertMany(dataProductStat);
+    // Product.insertMany(dataProduct);
   })
   .catch((error) => console.log(error));
