@@ -1,3 +1,4 @@
+import getCountryISO3 from 'country-iso-2-to-3';
 import User from '../models/userModel.js';
 import Product from '../models/productModel.js';
 import ProductStat from '../models/productStatModel.js';
@@ -60,6 +61,32 @@ export const getTransactions = async (req, res) => {
       name: { $regex: search, $options: 'i' },
     });
     res.status(200).send({ total, transactions });
+  } catch (error) {
+    res.status(404).send({ message: error.message });
+  }
+};
+
+export const getGeography = async (req, res) => {
+  try {
+    const users = await User.find();
+
+    const mappedLocations = users.reduce((acc, { country }) => {
+      const countryIso3 = getCountryISO3(country);
+
+      if (!acc[countryIso3]) {
+        acc[countryIso3] = 0;
+      }
+
+      acc[countryIso3]++;
+
+      return acc;
+    }, {});
+
+    const formattedLocations = Object.entries(mappedLocations).map(([country, count]) => {
+      return { id: country, value: count };
+    });
+
+    res.status(200).send(formattedLocations);
   } catch (error) {
     res.status(404).send({ message: error.message });
   }
