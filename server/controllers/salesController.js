@@ -2,7 +2,7 @@ import OverallStats from '../models/overallStatsModel.js';
 
 export const getSales = async (req, res) => {
   try {
-    const overallStats = OverallStats.find();
+    const overallStats = await OverallStats.find();
 
     res.status(200).send(overallStats[0]);
   } catch (error) {
