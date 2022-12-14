@@ -11,10 +11,17 @@ import managementRoutes from './routes/managementRoutes.js';
 import salesRoutes from './routes/salesRoutes.js';
 import User from './models/userModel.js';
 
-import { dataUser, dataProduct, dataProductStat, dataTransaction } from './data/index.js';
+import {
+  dataUser,
+  dataProduct,
+  dataProductStat,
+  dataTransaction,
+  dataOverallStat,
+} from './data/index.js';
 import ProductStat from './models/productStatModel.js';
 import Product from './models/productModel.js';
 import Transaction from './models/transactionModel.js';
+import OverallStats from './models/overallStatsModel.js';
 
 /* CONFIGRATION */
 dotenv.config();
@@ -43,5 +50,6 @@ mongoose
     // ProductStat.insertMany(dataProductStat);
     // Product.insertMany(dataProduct);
     // Transaction.insertMany(dataTransaction);
+    // OverallStats.insertMany(dataOverallStat);
   })
   .catch((error) => console.log(error));
