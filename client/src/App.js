@@ -13,6 +13,8 @@ import Customers from './pages/customers/Customers';
 import Geography from './pages/geography/Geography';
 import Transactions from './pages/transactions/Transactions';
 import Daily from './pages/daily/Daily';
+import Monthly from './pages/monthly/Monthly';
+import Breakdown from './pages/breakdown/Breakdown';
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -33,6 +35,9 @@ function App() {
               <Route path="/geography" element={<Geography />} />
               <Route path="/overview" element={<Overview />} />
               <Route path="/daily" element={<Daily />} />
+              <Route path="/monthly" element={<Monthly />} />
+              <Route path="/monthly" element={<Monthly />} />
+              <Route path="/breakdown" element={<Breakdown />} />
             </Route>
           </Routes>
         </ThemeProvider>
