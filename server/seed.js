@@ -15,6 +15,8 @@ const seedData = async (upload = false) => {
   try {
     if (!upload) return;
 
+    console.log('DELETING DATA');
+
     await User.deleteMany();
     await ProductStat.deleteMany();
     await Product.deleteMany();
@@ -22,6 +24,7 @@ const seedData = async (upload = false) => {
     await OverallStats.deleteMany();
 
     console.log('DATA DELETED');
+    console.log('UPLOADING DATA');
 
     await User.insertMany(dataUser);
     await ProductStat.insertMany(dataProductStat);
