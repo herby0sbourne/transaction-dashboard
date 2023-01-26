@@ -1,0 +1,17 @@
+###
+http://localhost:5001/client/customers
+
+
+###
+http://localhost:5001/client/transactions
+
+###
+http://localhost:5001/client/geography
+
+
+###
+http://localhost:5001/sales/sales
+
+###
+http://localhost:5001/general/dashboard
+
