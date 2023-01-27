@@ -4,7 +4,7 @@ import {
   dataProductStat,
   dataTransaction,
   dataUser,
-} from './data';
+} from './data/index.js';
 import OverallStats from './models/overallStatsModel.js';
 import Product from './models/productModel.js';
 import ProductStat from './models/productStatModel.js';

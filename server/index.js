@@ -24,6 +24,7 @@ import Product from './models/productModel.js';
 import Transaction from './models/transactionModel.js';
 import OverallStats from './models/overallStatsModel.js';
 import AffiliateStat from './models/AffiliateStat.js';
+import seedData from './seed.js';
 
 /* CONFIGRATION */
 dotenv.config();
@@ -45,14 +46,16 @@ app.use('/sales', salesRoutes);
 const PORT = process.env.PORT || 3005;
 mongoose.set('strictQuery', true);
 mongoose
-  .connect(process.env.MONGODB_URL_LOCAL)
+  .connect(process.env.MONGODB_URL)
   .then(() => {
+    // app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`));
+
+    //* use to populate mongoDd database
+    //? pass (true) to populate data and nothing does nothing
+    return seedData();
+  })
+  .then(() => {
+    // run server once data is populated
     app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`));
-    // User.insertMany(dataUser);
-    // ProductStat.insertMany(dataProductStat);
-    // Product.insertMany(dataProduct);
-    // Transaction.insertMany(dataTransaction);
-    // OverallStats.insertMany(dataOverallStat);
-    // AffiliateStat.insertMany(dataAffiliateStat);
   })
   .catch((error) => console.log(error));
