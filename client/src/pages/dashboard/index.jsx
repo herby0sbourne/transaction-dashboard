@@ -20,7 +20,7 @@ const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreen = useMediaQuery('(min-width:1200px)');
   const { data, isLoading } = useGetDashboardQuery();
-  console.log(data);
+
   const columns = [
     {
       field: '_id',

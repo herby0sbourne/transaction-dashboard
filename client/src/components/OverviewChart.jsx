@@ -44,7 +44,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
 
   if (!data || isLoading) return 'Loading...';
 
-  console.log(totalSalesLine, totalUnitsLine);
   return (
     <ResponsiveLine
       data={view === 'sales' ? totalSalesLine : totalUnitsLine}
